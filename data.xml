@@ -1,0 +1,66 @@
+<Fighters>
+  <Fighter name="Zangief">
+    <HomeCountry>
+      <Country>USSR</Country>
+      <Flag>Hammer and Sickle</Flag>
+    </HomeCountry>
+    <DefaultColor>Red</DefaultColor>
+    <SweetMove>360 Piledriver</SweetMove>
+  </Fighter>
+  <Fighter name="Chun Li">
+    <HomeCountry>
+      <Country>China</Country>
+      <Flag>Five Stars</Flag>
+    </HomeCountry>
+    <DefaultColor>Blue</DefaultColor>
+    <SweetMove>Helicopter Kick</SweetMove>
+  </Fighter>
+  <Fighter name="Guile">
+    <HomeCountry>
+      <Country>USA</Country>
+      <Flag>Stars and Stripes</Flag>
+    </HomeCountry>
+    <DefaultColor>Green</DefaultColor>
+    <SweetMove>Sonic Boom!</SweetMove>
+  </Fighter>
+  <Fighter name="Ken">
+    <HomeCountry>
+      <Country>USA</Country>
+      <Flag>Stars and Stripes</Flag>
+    </HomeCountry>
+    <DefaultColor>Red</DefaultColor>
+    <SweetMove>Shoryuken!</SweetMove>
+  </Fighter>
+  <Fighter name="Ryu">
+    <HomeCountry>
+      <Country>Japan</Country>
+      <Flag>Sun</Flag>
+    </HomeCountry>
+    <DefaultColor>White</DefaultColor>
+    <SweetMove>Haduken!</SweetMove>
+  </Fighter>
+  <Fighter name="E Honda">
+    <HomeCountry>
+      <Country>Japan</Country>
+      <Flag>Sun</Flag>
+    </HomeCountry>
+    <DefaultColor>Blue</DefaultColor>
+    <SweetMove>Sumo Missile</SweetMove>
+  </Fighter>
+  <Fighter name="Blanka">
+    <HomeCountry>
+      <Country>Brazil</Country>
+      <Flag>Earth</Flag>
+    </HomeCountry>
+    <DefaultColor>Orange</DefaultColor>
+    <SweetMove>Electricity</SweetMove>
+  </Fighter>
+  <Fighter name="Dhalsim">
+    <HomeCountry>
+      <Country>India</Country>
+      <Flag>Shield</Flag>
+    </HomeCountry>
+    <DefaultColor>Yellow</DefaultColor>
+    <SweetMove>Yoga Fire!</SweetMove>
+  </Fighter>
+</Fighters>
