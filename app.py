@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     "field",
     nargs="?",
-    default="SweetMove",
+    default="HomeCountry",
     help="Pick one of the fields from data.xml"
 )
 args = parser.parse_args()
@@ -22,7 +22,7 @@ if __name__ == '__main__':
         name = f["@name"]
 
         # country is "HomeCountry"
-        #country = f["HomeCountry"]
+        country = f["HomeCountry"]
 
         # country is "HomeCountry" "Country"
         #country = f["HomeCountry"]["Country"]
@@ -35,8 +35,15 @@ if __name__ == '__main__':
 
         # field determined by argument at runtime via dpath
         # this demonstrates how dpath can retrieve nested keys dynamically
-        country = dpath.util.get(f, args.field)
+        #country = dpath.util.get(f, args.field)
 
         # as of Python 3.7 you can use f-strings
         # to insert variables into strings
         print(f"{name}'s {args.field} is {country}")
+
+        # if you are Python 3.6 or lower
+        #print("{name}'s {field} is {country}".format(
+        #    name=name,
+        #    field=args.field,
+        #    country=country
+        #))
