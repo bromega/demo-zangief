@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     "field",
     nargs="?",
-    default="HomeCountry",
+    default="SweetMove",
     help="Pick one of the fields from data.xml"
 )
 args = parser.parse_args()
