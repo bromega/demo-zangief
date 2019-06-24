@@ -368,16 +368,16 @@ Add the changes to staging:
 git add .
 ```
 
-Commit the changes to your git branch with a helpful message:
-
-```
-git commit -m "added dpath to parse arguments dynamically"
-```
-
 Check the status of your files and commit to make sure everything looks good:
 
 ```
 git status
+```
+
+Commit the changes to your git branch with a helpful message:
+
+```
+git commit -m "added dpath to parse arguments dynamically"
 ```
 
 Push the changes to your branch
