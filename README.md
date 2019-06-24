@@ -20,19 +20,27 @@ cd demo
 
 Clone this repository
 
-` git clone https://github.com/bromega/demo-zangief.git `
+```
+git clone https://github.com/bromega/demo-zangief.git
+```
 
 Navigate to the repository directory
 
-` cd demo-zangief `
+```
+cd demo-zangief
+```
 
 Create a branch and give it a snazzy title
 
-` git checkout -b balrog-is-just-mike-tyson `
+```
+git checkout -b balrog-is-just-mike-tyson
+```
 
 Run the file
 
-` python app.py ` or ` python3 app.py `
+```
+python app.py ` or ` python3 app.py
+```
 
 But wait! There's an error! Something like this:
 
@@ -90,13 +98,17 @@ MFVFWJN2SJ1WL:demos oliver.williams$ source venv/bin/activate
 
 Install the required libraries
 
-` pip install -r requirements.txt `
+```
+pip install -r requirements.txt
+```
 
 Now run the script
 
-` python app.py `
+```
+python app.py
+```
 
-Instead of errors you should a print out of data
+Instead of errors you should see a print out of data
 
 #### The Script
 
@@ -179,9 +191,9 @@ parser.add_argument(
 args = parser.parse_args()
 ```
 
-The app.py script is leveraging the native Python library [argparse](https://docs.python.org/3/library/argparse.html) for determining run-time arguments. If you don't provide an argument, it will default to the attribute SweetMove.
+The app.py script is leveraging the native Python library [argparse](https://docs.python.org/3/library/argparse.html) for determining runtime arguments. If you don't provide an argument, it will default to the value SweetMove.
 
-One option is to change the default to HomeCountry:
+One option is to change the default value to HomeCountry:
 
 ```
 parser.add_argument(
@@ -280,7 +292,7 @@ Blanka's HomeCountry is OrderedDict([('Country', 'Brazil'), ('Flag', 'Earth')])
 Dhalsim's HomeCountry is OrderedDict([('Country', 'India'), ('Flag', 'Shield')])
 ```
 
-Dagnabbit. Let's try it with a parent/child argument, maybe?
+Dagnabbit, now we're back to square one. Let's try it with a parent/child argument, maybe?
 
 ```
 python app.py HomeCountry/Country
@@ -295,7 +307,7 @@ Traceback (most recent call last):
 KeyError: 'HomeCountry/Country'
 ```
 
-Harrumph. We want to be able to pass both parent nodes and child nodes to the script. We could write a custom function to do this, or we could search the internet for a non-standard library. Let's go with the non-standard library [dpath](https://github.com/akesterson/dpath-python).
+Harrumph. We want to be able to pass both parent nodes and child nodes to the script. We could write a custom function to interpret the runtime argument, or we could search the internet for a non-standard library. Let's go with the non-standard library [dpath](https://github.com/akesterson/dpath-python).
 
 If you're just testing out dpath, you could install dpath directly with:
 
@@ -337,7 +349,7 @@ Now comment out the third "answer" row and uncomment the fourth one:
 answer = dpath.util.get(f, args.node)
 ```
 
-Hold your breath and run the script:
+Run the script with a nested node argument:
 
 ```
 python app.py HomeCountry/Country
@@ -356,7 +368,26 @@ Blanka's HomeCountry/Country is Brazil
 Dhalsim's HomeCountry/Country is India
 ```
 
-There you go! You now have a script that can return specific, nested data points from a data.xml file based on the arguments you pass at run time.
+Great, but does it still work for SweetMove?
+
+```
+python app.py SweetMove
+```
+
+Output:
+
+```
+Zangief's SweetMove is 360 Piledriver
+Chun Li's SweetMove is Helicopter Kick
+Guile's SweetMove is Sonic Boom!
+Ken's SweetMove is Shoryuken!
+Ryu's SweetMove is Haduken!
+E Honda's SweetMove is Sumo Missile
+Blanka's SweetMove is Electricity
+Dhalsim's SweetMove is Yoga Fire!
+```
+
+There you go! You now have a script that can return specific, nested data points from a data.xml file based on the arguments you pass at runtime.
 
 #### Finishing Touches
 
