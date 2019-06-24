@@ -1,13 +1,18 @@
+# non-native libraries
 import xmltodict
 import dpath
+
+# native libraries
 import argparse
 
+
+# initialize argparse
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "field",
+    "node",
     nargs="?",
-    default="SweetMove",
-    help="Pick one of the fields from data.xml"
+    default="HomeCountry",
+    help="Pick one of the nodes from data.xml"
 )
 args = parser.parse_args()
 
@@ -21,29 +26,27 @@ if __name__ == '__main__':
     for f in fighters:
         name = f["@name"]
 
-        # country is "HomeCountry"
-        country = f["HomeCountry"]
+        # 1. country is "HomeCountry"
+        answer = f["HomeCountry"]
 
-        # country is "HomeCountry" "Country"
-        #country = f["HomeCountry"]["Country"]
+        # 2. country is "HomeCountry" "Country"
+        #answer = f["HomeCountry"]["Country"]
 
-        # country is dpath "HomeCountry/Country"
-        #country = dpath.util.get(f, "HomeCountry/Country")
+        # 3. node determined by argument at runtime
+        #answer = f[args.node]
 
-        # field determined by argument at runtime
-        #country = f[args.field]
-
-        # field determined by argument at runtime via dpath
+        # 4. node determined by argument at runtime via dpath
         # this demonstrates how dpath can retrieve nested keys dynamically
-        #country = dpath.util.get(f, args.field)
+        # i.e. "HomeCountry/Country"
+        #answer = dpath.util.get(f, args.node)
 
         # as of Python 3.7 you can use f-strings
         # to insert variables into strings
-        print(f"{name}'s {args.field} is {country}")
+        print(f"{name}'s {args.node} is {answer}")
 
         # if you are Python 3.6 or lower
-        #print("{name}'s {field} is {country}".format(
+        #print("{name}'s {node} is {country}".format(
         #    name=name,
-        #    field=args.field,
+        #    node=args.node,
         #    country=country
         #))

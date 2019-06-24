@@ -50,7 +50,7 @@
   <Fighter name="Blanka">
     <HomeCountry>
       <Country>Brazil</Country>
-      <Flag>Earth</Flag>
+      <Flag>Sky</Flag>
     </HomeCountry>
     <DefaultColor>Orange</DefaultColor>
     <SweetMove>Electricity</SweetMove>
@@ -58,7 +58,7 @@
   <Fighter name="Dhalsim">
     <HomeCountry>
       <Country>India</Country>
-      <Flag>Shield</Flag>
+      <Flag>Wheel</Flag>
     </HomeCountry>
     <DefaultColor>Yellow</DefaultColor>
     <SweetMove>Yoga Fire!</SweetMove>
