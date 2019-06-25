@@ -331,7 +331,7 @@ If you're just testing out dpath, you could install dpath directly with:
 pip install dpath
 ```
 
-However, once you've determined you're going to use it going forward, you will need to add it to the requirements file for others to use in their enviroments.
+However, once you've determined you're going to use it going forward, you will need to add it to the requirements file for others to use in their environments.
 
 In your requirements.txt file, add dpath:
 
