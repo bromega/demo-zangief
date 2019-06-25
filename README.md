@@ -2,12 +2,14 @@
 
 This is a Python 3.7 demo
 
-### Requirements
+## Requirements
 
 * Python 3.7+
 * Git
 
-### Instructions
+## Instructions
+
+[Virtual Environments](#virtual-environments)
 
 On your machine, open Terminal or Powershell or Command Prompt. Create a directory for this demo and navigate to it
 
@@ -16,7 +18,7 @@ mkdir demo
 cd demo
 ```
 
-#### Git
+### Git
 
 Clone this repository
 
@@ -59,7 +61,7 @@ ModuleNotFoundError: No module named 'xmltodict'
 
 That's because we are running this on the root machine and not in a virtual environment with the necessary libraries installed.
 
-#### Virtual Environments
+### Virtual Environments
 
 Create the virtual environment with Python3. Check which version is the default on your root machine:
 
@@ -94,7 +96,7 @@ MFVFWJN2SJ1WL:demos oliver.williams$ source venv/bin/activate
 (venv) MFVFWJN2SJ1WL:demos oliver.williams$
 ```
 
-#### Dependencies
+### Dependencies
 
 Install the required libraries
 
@@ -110,7 +112,7 @@ python app.py
 
 Instead of errors you should see a print out of data
 
-#### The Script
+### The Script
 
 What's going on in this script? It's reading XML data from data.xml and printing it out in the command prompt.
 
@@ -125,6 +127,8 @@ Ryu's SweetMove is OrderedDict([('Country', 'Japan'), ('Flag', 'Sun')])
 E Honda's SweetMove is OrderedDict([('Country', 'Japan'), ('Flag', 'Sun')])
 Blanka's SweetMove is OrderedDict([('Country', 'Brazil'), ('Flag', 'Earth')])
 ```
+
+#### Step 1
 
 Huh, that doesn't look sweet at all. Let's look at the code:
 
