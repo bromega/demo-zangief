@@ -2,64 +2,66 @@
 
 This is a Python 3.7 demo
 
-### Requirements
+## Requirements
 
 * Python 3.7+
 * Git
 
-### Instructions
+## Instructions
 
-On your machine, open Terminal or Powershell or Command Prompt. Create a directory for this demo and navigate to it
+* [Git](#git)
+* [Virtual Environments](#virtual-environments)
+* [Dependencies](#dependencies)
+* [The Script](#the-script)
+  * [Step 1](#step-1)
+  * [Step 2](#step-2)
+  * [argparse](#argparse)
+  * [Step 3](#step-3)
+  * [dpath](#dpath)
+  * [Step 4](#step-4)
+
+### Git
+
+On your machine, open Terminal or Powershell or Command Prompt. Create a directory for this demo (if you haven't already) and navigate to it:
 
 ```
 mkdir demo
 cd demo
 ```
 
-#### Git
-
-Clone this repository
+Clone this repository:
 
 ```
 git clone https://github.com/bromega/demo-zangief.git
 ```
 
-Navigate to the repository directory
+Navigate to the repository directory:
 
 ```
 cd demo-zangief
 ```
 
-Create a branch and give it a snazzy title
+Create a branch and give it a snazzy title (use hyphens for spaces):
 
 ```
 git checkout -b balrog-is-just-mike-tyson
 ```
 
-Run the file
+Run the file:
 
-```
-python app.py ` or ` python3 app.py
-```
+`python app.py ` or `python3 app.py`
 
 But wait! There's an error! Something like this:
 
 ```
-File "app.py", line 42
-  print(f"{name}'s {args.node} is {country}")
-```
-
-or
-
-```
-File "app.py", line 1, in <module>
+File "app.py", line 2, in <module>
   import xmltodict
 ModuleNotFoundError: No module named 'xmltodict'
 ```
 
 That's because we are running this on the root machine and not in a virtual environment with the necessary libraries installed.
 
-#### Virtual Environments
+### Virtual Environments
 
 Create the virtual environment with Python3. Check which version is the default on your root machine:
 
@@ -81,10 +83,13 @@ python3 -m venv venv
 
 If you only have Python2 installed, install Python3 before proceeding.
 
-Activate the virtual environment:
+---
+
+
+Activate the virtual environment depending on your command line application
 
 * Terminal: ` source venv/bin/activate `
-* CMD.exe ` venv\Scripts\activate.bat `
+* cmd.exe ` venv\Scripts\activate.bat `
 * Powershell: ` venv\Scripts\Activate.ps1 `
 
 Once inside the virtual environment, your prompt should change to whatever you named your environment (in this case "venv") for example:
@@ -94,7 +99,7 @@ MFVFWJN2SJ1WL:demos oliver.williams$ source venv/bin/activate
 (venv) MFVFWJN2SJ1WL:demos oliver.williams$
 ```
 
-#### Dependencies
+### Dependencies
 
 Install the required libraries
 
@@ -110,7 +115,7 @@ python app.py
 
 Instead of errors you should see a print out of data
 
-#### The Script
+### The Script
 
 What's going on in this script? It's reading XML data from data.xml and printing it out in the command prompt.
 
@@ -125,6 +130,8 @@ Ryu's SweetMove is OrderedDict([('Country', 'Japan'), ('Flag', 'Sun')])
 E Honda's SweetMove is OrderedDict([('Country', 'Japan'), ('Flag', 'Sun')])
 Blanka's SweetMove is OrderedDict([('Country', 'Brazil'), ('Flag', 'Earth')])
 ```
+
+#### Step 1
 
 Huh, that doesn't look sweet at all. Let's look at the code:
 
@@ -141,9 +148,12 @@ And how is the XML structured?
     <HomeCountry>
       <Country>USSR</Country>
       <Flag>Hammer and Sickle</Flag>
+      ...
 ```
 
-Ok, so what happens if we call the child node "Country" instead of just the parent node "HomeCountry"? Comment out the line that's currently determining the variable "answer" and uncomment the second one:
+#### Step 2
+
+Ok, so what happens if we call the child node "Country" instead of just the parent node "HomeCountry"? Comment out the line that's currently determining the variable "answer" and uncomment the second one, so it looks like this:
 
 ```
 # 1. answer is "HomeCountry"
@@ -177,6 +187,8 @@ That looks better. But those aren't sweet moves, those are countries. Why is it 
 ```
 print(f"{name}'s {args.node} is {answer}")
 ```
+
+#### Argparse
 
 Okay, so it's getting SweetMove from args.node but where is it getting "args" from? Earlier in the code we have:
 
@@ -225,6 +237,8 @@ Dhalsim's HomeCountry is India
 
 That looks great! But what if we're interested in more than just HomeCountry? What if we really do want to know what each person's SweetMove is without having to change the code every time?
 
+#### Step 3
+
 Let's really leverage argparse here. We can call the attribute we want at runtime by passing it as an argument to the script.
 
 ```
@@ -244,7 +258,7 @@ Blanka's SweetMove is Brazil
 Dhalsim's SweetMove is India
 ```
 
-Great, now we're determining the attribute at runtime, but we're still getting the default result (HomeCountry/Country). Let's change the active part of the code. Comment out the second "answer" line and uncomment the third one:
+Great, now we're determining the attribute at runtime, but we're still getting the default result (HomeCountry/Country). Let's change the active part of the code. Comment out the second "answer" line and uncomment the third one, so it looks like this:
 
 ```
 # 2. answer is "HomeCountry" "Country"
@@ -307,6 +321,8 @@ Traceback (most recent call last):
 KeyError: 'HomeCountry/Country'
 ```
 
+#### Install dpath
+
 Harrumph. We want to be able to pass both parent nodes and child nodes to the script. We could write a custom function to interpret the runtime argument, or we could search the internet for a non-standard library. Let's go with the non-standard library [dpath](https://github.com/akesterson/dpath-python).
 
 If you're just testing out dpath, you could install dpath directly with:
@@ -315,7 +331,7 @@ If you're just testing out dpath, you could install dpath directly with:
 pip install dpath
 ```
 
-However, once you've determined you're going to use it going forward, you will need to add it to the requirements file for others to use in their enviroments.
+However, once you've determined you're going to use it going forward, you will need to add it to the requirements file for others to use in their environments.
 
 In your requirements.txt file, add dpath:
 
@@ -329,6 +345,8 @@ Now from your command prompt, install the requirements.txt file again
 ```
 pip install -r requirements.txt
 ```
+
+#### Step 4
 
 At the top of app.py, add a line to import dpath
 
