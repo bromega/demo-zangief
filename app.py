@@ -1,6 +1,5 @@
 # non-native libraries
 import xmltodict
-import dpath
 
 # native libraries
 import argparse
