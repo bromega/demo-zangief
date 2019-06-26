@@ -1,10 +1,10 @@
 # Demo - Zangief
 
-This is a Python 3.7 demo
+This is a Python 3.6+ demo
 
 ## Requirements
 
-* Python 3.7+
+* Python 3.6+
 * Git
 
 ## Instructions

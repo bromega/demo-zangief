@@ -39,13 +39,6 @@ if __name__ == '__main__':
         # i.e. "HomeCountry/Country"
         #answer = dpath.util.get(f, args.node)
 
-        # as of Python 3.7 you can use f-strings
+        # as of Python 3.6 or higher you can use f-strings
         # to insert variables into strings
         print(f"{name}'s {args.node} is {answer}")
-
-        # if you are Python 3.6 or lower
-        #print("{name}'s {node} is {country}".format(
-        #    name=name,
-        #    node=args.node,
-        #    country=country
-        #))
