@@ -1,5 +1,6 @@
 # non-native libraries
 import xmltodict
+import dpath
 
 # native libraries
 import argparse
@@ -25,7 +26,7 @@ if __name__ == '__main__':
         name = f["@name"]
 
         # 1. country is "HomeCountry"
-        answer = f["HomeCountry"]
+        #answer = f["HomeCountry"]
 
         # 2. country is "HomeCountry" "Country"
         #answer = f["HomeCountry"]["Country"]
@@ -36,7 +37,7 @@ if __name__ == '__main__':
         # 4. node determined by argument at runtime via dpath
         # this demonstrates how dpath can retrieve nested keys dynamically
         # i.e. "HomeCountry/Country"
-        #answer = dpath.util.get(f, args.node)
+        answer = dpath.util.get(f, args.node)
 
         # as of Python 3.6 or higher you can use f-strings
         # to insert variables into strings
